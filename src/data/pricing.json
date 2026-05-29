@@ -1,0 +1,11 @@
+[
+  {"model_id": "gpt-4o", "input_price_per_1m": 2.50, "output_price_per_1m": 10.00, "currency": "USD", "last_updated": "2024-05-13"},
+  {"model_id": "gpt-4o-mini", "input_price_per_1m": 0.15, "output_price_per_1m": 0.60, "currency": "USD", "last_updated": "2024-07-18"},
+  {"model_id": "gpt-4-turbo", "input_price_per_1m": 10.00, "output_price_per_1m": 30.00, "currency": "USD", "last_updated": "2024-04-09"},
+  {"model_id": "gpt-4", "input_price_per_1m": 30.00, "output_price_per_1m": 60.00, "currency": "USD", "last_updated": "2023-03-14"},
+  {"model_id": "gpt-4-32k", "input_price_per_1m": 60.00, "output_price_per_1m": 120.00, "currency": "USD", "last_updated": "2023-03-14"},
+  {"model_id": "gpt-3.5-turbo", "input_price_per_1m": 0.50, "output_price_per_1m": 1.50, "currency": "USD", "last_updated": "2023-11-06"},
+  {"model_id": "text-embedding-3-small", "input_price_per_1m": 0.02, "output_price_per_1m": null, "currency": "USD", "last_updated": "2024-01-25"},
+  {"model_id": "text-embedding-3-large", "input_price_per_1m": 0.13, "output_price_per_1m": null, "currency": "USD", "last_updated": "2024-01-25"},
+  {"model_id": "text-embedding-ada-002", "input_price_per_1m": 0.10, "output_price_per_1m": null, "currency": "USD", "last_updated": "2022-12-15"}
+]
