@@ -1,0 +1,103 @@
+version: 1
+disable_existing_loggers: false
+
+# ── Anchor: noisy third-party logger template ─────────────────────────
+_noisy: &noisy
+  level: WARNING
+  propagate: true
+
+# ── Formatters ───────────────────────────────────────────────────────
+formatters:
+  # Detailed Standard format
+  standard:
+    format: "%(asctime)s,%(msecs)03d - %(levelname)s - %(name)s,%(lineno)d - %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+
+  # Detailed format for rotating file handlers
+  file:
+    format: "%(asctime)s,%(msecs)03d - %(levelname)s - %(name)s - %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+
+  # Clean, human-readable format for console
+  console:
+    format: "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+
+
+# ── Filters ──────────────────────────────────────────────────────────
+filters:
+  exact_debug:
+    (): src.core.logging.ExactLevelFilter
+    level: 10
+
+  exact_info:
+    (): src.core.logging.ExactLevelFilter
+    level: 20
+
+  exact_warning:
+    (): src.core.logging.ExactLevelFilter
+    level: 30
+
+# ── Handlers ─────────────────────────────────────────────────────────
+handlers:
+  debug_file:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: file
+    filters: [exact_debug]
+    filename: logs/prompttokenizer_debug.log
+    maxBytes: 10485760
+    backupCount: 5
+    encoding: utf-8
+
+  info_file:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: file
+    filters: [exact_info]
+    filename: logs/prompttokenizer_info.log
+    maxBytes: 10485760
+    backupCount: 5
+    encoding: utf-8
+
+  warning_file:
+    class: logging.handlers.RotatingFileHandler
+    level: WARNING
+    formatter: file
+    filters: [exact_warning]
+    filename: logs/prompttokenizer_warning.log
+    maxBytes: 10485760
+    backupCount: 5
+    encoding: utf-8
+
+  error_file:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: file
+    filename: logs/prompttokenizer_error.log
+    maxBytes: 10485760
+    backupCount: 5
+    encoding: utf-8
+
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: console
+    stream: ext://sys.stdout
+
+# ── Noisy third-party loggers ─────────────────────────────────────────
+loggers:
+  httpx:                                        *noisy
+  # gunicorn:                                     *noisy
+  # uvicorn:                                      *noisy
+  # uvicorn.access:
+  #   <<: *noisy
+  #   level: ERROR
+  mcp.client.sse:                               *noisy
+  primp:                                        *noisy
+  langchain_aws.chat_models.bedrock_converse:   *noisy
+
+# ── Root logger ───────────────────────────────────────────────────────
+root:
+  level: INFO
+  handlers: [debug_file, info_file, warning_file, error_file, console]
