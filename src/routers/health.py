@@ -12,6 +12,7 @@ _process = psutil.Process(os.getpid())
 def health_check():
     settings = get_settings()
     mem = _process.memory_info()
+    
     return {
         "status": "ok",
         "service": settings.app_name,

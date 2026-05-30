@@ -7,6 +7,7 @@ router = APIRouter(prefix="/tokenize", tags=["Tokenize"])
 
 @router.post("", response_model=TokenizeResponse)
 def tokenize_text(request: TokenizeRequest):
+    
     return tokenizer_service.tokenize(
         model_or_encoding=request.model,
         text=request.text,
