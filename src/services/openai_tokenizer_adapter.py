@@ -1,37 +1,39 @@
 from __future__ import annotations
 import tiktoken
+from tiktoken.model import encoding_name_for_model
 from src.adapters.base import BaseTokenizerAdapter
 from src.core.exceptions import TokenizerNotAvailableError
 from src.core.logger import get_logger
 
 logger = get_logger(__name__)
 
+# All encoding names referenced in models.json — loaded once at module startup.
+# Thread-safe: populated before any request threads are spawned; never mutated after.
+ENCODINGS: dict[str, tiktoken.Encoding] = {
+    name: tiktoken.get_encoding(name)
+    for name in ("cl100k_base", "gpt2", "o200k_base", "p50k_base", "p50k_edit", "r50k_base")
+}
+
 
 class OpenAITokenizerAdapter(BaseTokenizerAdapter):
     adapter_name = "openai_tiktoken"
 
-    def __init__(self) -> None:
-        self._cache: dict[str, tiktoken.Encoding] = {}
-
     def _get_encoding_by_name(self, tokenizer_name: str) -> tiktoken.Encoding:
-        if tokenizer_name not in self._cache:
-            try:
-                self._cache[tokenizer_name] = tiktoken.get_encoding(tokenizer_name)
-            except Exception as exc:
-                raise TokenizerNotAvailableError(tokenizer_name) from exc
-        return self._cache[tokenizer_name]
+        enc = ENCODINGS.get(tokenizer_name)
+        if enc is None:
+            raise TokenizerNotAvailableError(tokenizer_name)
+        return enc
 
     def get_encoding_for_model(self, model_name: str, tokenizer_ref: str) -> tiktoken.Encoding:
-        cache_key = f"model:{model_name}"
-        if cache_key not in self._cache:
-            try:
-                self._cache[cache_key] = tiktoken.encoding_for_model(model_name)
-            except KeyError:
-                # model not in tiktoken's built-in map — fall back to tokenizer_ref
-                self._cache[cache_key] = self._get_encoding_by_name(tokenizer_ref)
-            except Exception as exc:
-                raise TokenizerNotAvailableError(tokenizer_ref) from exc
-        return self._cache[cache_key]
+        try:
+            enc_name = encoding_name_for_model(model_name)
+            enc = ENCODINGS.get(enc_name)
+            if enc is not None:
+                return enc
+        except KeyError:
+            pass
+        # model not in tiktoken's built-in map (or its encoding isn't pre-loaded) — fall back to tokenizer_ref
+        return self._get_encoding_by_name(tokenizer_ref)
 
     def encode(self, text: str) -> list[int]:
         raise NotImplementedError("Use encode_with_tokenizer or encode_for_model_with_ref")
@@ -69,7 +71,7 @@ class OpenAITokenizerAdapter(BaseTokenizerAdapter):
 
     def supports_model(self, model_id: str) -> bool:
         try:
-            tiktoken.encoding_for_model(model_id)
+            encoding_name_for_model(model_id)
             return True
         except KeyError:
             return False
