@@ -1,7 +1,18 @@
 from __future__ import annotations
 from functools import lru_cache
-from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import field_validator
+from typing import Any, Tuple, Type
+from pydantic_settings import BaseSettings, SettingsConfigDict, PydanticBaseSettingsSource
+from pydantic_settings.sources.providers.dotenv import DotEnvSettingsSource
+
+
+class _FlexDotEnvSource(DotEnvSettingsSource):
+    def decode_complex_value(self, field_name: str, field_info: Any, value: Any) -> Any:
+        try:
+            return super().decode_complex_value(field_name, field_info, value)
+        except Exception:
+            if isinstance(value, str):
+                return [v.strip() for v in value.split(",") if v.strip()]
+            raise
 
 
 class Settings(BaseSettings):
@@ -23,12 +34,16 @@ class Settings(BaseSettings):
     timeout: int = 120
     graceful_timeout: int = 30
 
-    @field_validator("allowed_origins", mode="before")
     @classmethod
-    def parse_origins(cls, v: str | list[str]) -> list[str]:
-        if isinstance(v, str):
-            return [origin.strip() for origin in v.split(",") if origin.strip()]
-        return v
+    def settings_customise_sources(
+        cls,
+        settings_cls: Type[BaseSettings],
+        init_settings: PydanticBaseSettingsSource,
+        env_settings: PydanticBaseSettingsSource,
+        dotenv_settings: PydanticBaseSettingsSource,
+        file_secret_settings: PydanticBaseSettingsSource,
+    ) -> Tuple[PydanticBaseSettingsSource, ...]:
+        return (init_settings, env_settings, _FlexDotEnvSource(settings_cls), file_secret_settings)
 
 
 @lru_cache

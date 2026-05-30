@@ -27,15 +27,15 @@ formatters:
 # ── Filters ──────────────────────────────────────────────────────────
 filters:
   exact_debug:
-    (): src.core.logging.ExactLevelFilter
+    (): src.core.logger.ExactLevelFilter
     level: 10
 
   exact_info:
-    (): src.core.logging.ExactLevelFilter
+    (): src.core.logger.ExactLevelFilter
     level: 20
 
   exact_warning:
-    (): src.core.logging.ExactLevelFilter
+    (): src.core.logger.ExactLevelFilter
     level: 30
 
 # ── Handlers ─────────────────────────────────────────────────────────
