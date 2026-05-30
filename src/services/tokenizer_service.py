@@ -11,7 +11,8 @@ def tokenize(
     include_tokens: bool = True,
     include_token_ids: bool = True,
 ) -> TokenizeResponse:
-    registry = get_model_registry()
+    
+    registry = get_model_registry()    
     entry = registry.get_by_id(model_or_encoding)
     tokenizer_ref = entry.tokenizer_ref
 

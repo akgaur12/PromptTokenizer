@@ -9,6 +9,7 @@ router = APIRouter(prefix="/compare", tags=["Compare"])
 @router.post("", response_model=CompareResponse)
 def compare_tokenizers(request: CompareRequest):
     results: list[CompareResult] = []
+    
     for model_id in request.models:
         try:
             resp = tokenizer_service.tokenize(

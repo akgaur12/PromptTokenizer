@@ -1,4 +1,5 @@
 from __future__ import annotations
+import time
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from src.core.config import get_settings
@@ -13,8 +14,11 @@ logger = get_logger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    t0 = time.perf_counter()
     settings = get_settings()
     logger.info("Starting %s v%s", settings.app_name, settings.app_version)
+    elapsed_ms = (time.perf_counter() - t0) * 1000
+    logger.info("Application started in %.1fms", elapsed_ms)
     yield
     logger.info("Shutting down %s", settings.app_name)
 

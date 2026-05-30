@@ -10,6 +10,7 @@ DATA_FILE = Path(__file__).parent.parent / "data" / "models.json"
 
 
 class ModelRegistry:
+    
     def __init__(self, data_file: Path = DATA_FILE) -> None:
         raw = json.loads(data_file.read_text(encoding="utf-8"))
         self._entries: dict[str, ModelEntry] = {
@@ -22,7 +23,9 @@ class ModelRegistry:
         provider: str | None = None,
         search: str | None = None,
     ) -> list[ModelEntry]:
+        
         entries = list(self._entries.values())
+        
         if group:
             entries = [e for e in entries if e.group.lower() == group.lower()]
         if provider:
