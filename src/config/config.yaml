@@ -1,0 +1,8 @@
+tokenizer:
+  encoding_names:
+    - cl100k_base
+    - gpt2
+    - o200k_base
+    - p50k_base
+    - p50k_edit
+    - r50k_base

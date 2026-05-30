@@ -7,6 +7,7 @@ from src.core.cors import setup_cors
 from src.core.logger import configure_logging, get_logger
 from src.core.exceptions import register_exception_handlers
 from src.routers import health, models, tokenize, compare, pricing
+from src.services.openai_tokenizer_adapter import preload_encodings
 
 configure_logging()
 logger = get_logger(__name__)
@@ -17,6 +18,7 @@ async def lifespan(app: FastAPI):
     t0 = time.perf_counter()
     settings = get_settings()
     logger.info("Starting %s v%s", settings.app_name, settings.app_version)
+    preload_encodings()
     elapsed_ms = (time.perf_counter() - t0) * 1000
     logger.info("Application started in %.1fms", elapsed_ms)
     yield
