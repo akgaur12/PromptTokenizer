@@ -4,15 +4,26 @@ from tiktoken.model import encoding_name_for_model
 from src.adapters.base import BaseTokenizerAdapter
 from src.core.exceptions import TokenizerNotAvailableError
 from src.core.logger import get_logger
+from src.utils.config_loader import load_config
 
 logger = get_logger(__name__)
 
-# All encoding names referenced in models.json — loaded once at module startup.
-# Thread-safe: populated before any request threads are spawned; never mutated after.
-ENCODINGS: dict[str, tiktoken.Encoding] = {
-    name: tiktoken.get_encoding(name)
-    for name in ("cl100k_base", "gpt2", "o200k_base", "p50k_base", "p50k_edit", "r50k_base")
-}
+_ENCODING_NAMES: tuple[str, ...] = tuple(load_config("src/config/config.yaml")["tokenizer"]["encoding_names"])
+
+# Populated by preload_encodings() during lifespan startup; never mutated after.
+ENCODINGS: dict[str, tiktoken.Encoding] = {}
+
+
+def preload_encodings() -> None:
+    pending = [name for name in _ENCODING_NAMES if name not in ENCODINGS]
+    if not pending:
+        logger.debug("Tokenizer encodings already loaded, skipping preload")
+        return
+    logger.info("Preloading %d tokenizer encoding(s): %s", len(pending), ", ".join(pending))
+    for name in pending:
+        logger.debug("Loading encoding: %s", name)
+        ENCODINGS[name] = tiktoken.get_encoding(name)
+    logger.info("Tokenizer preload complete (%d encoding(s) ready)", len(ENCODINGS))
 
 
 class OpenAITokenizerAdapter(BaseTokenizerAdapter):
@@ -83,5 +94,6 @@ _adapter_instance: OpenAITokenizerAdapter | None = None
 def get_openai_adapter() -> OpenAITokenizerAdapter:
     global _adapter_instance
     if _adapter_instance is None:
+        preload_encodings()
         _adapter_instance = OpenAITokenizerAdapter()
     return _adapter_instance
