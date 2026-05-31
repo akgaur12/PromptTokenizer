@@ -1,5 +1,34 @@
 [
   {
+    "model_id": "gpt-5",
+    "input_price_per_1m": 1.25,
+    "output_price_per_1m": 10.0,
+    "currency": "USD",
+    "last_updated": "2025-08-07"
+  },
+  {
+    "model_id": "gpt-5-mini",
+    "input_price_per_1m": 0.25,
+    "output_price_per_1m": 2.0,
+    "currency": "USD",
+    "last_updated": "2025-08-07"
+  },
+  {
+    "model_id": "gpt-5-nano",
+    "input_price_per_1m": 0.05,
+    "output_price_per_1m": 0.4,
+    "currency": "USD",
+    "last_updated": "2025-08-07"
+  },
+  {
+    "model_id": "gpt-5-pro",
+    "input_price_per_1m": 15.0,
+    "output_price_per_1m": 120.0,
+    "currency": "USD",
+    "last_updated": "2025-08-07"
+  },
+
+  {
     "model_id": "gpt-4o",
     "input_price_per_1m": 2.5,
     "output_price_per_1m": 10.0,
@@ -34,6 +63,7 @@
     "currency": "USD",
     "last_updated": "2023-03-14"
   },
+
   {
     "model_id": "gpt-3.5-turbo",
     "input_price_per_1m": 0.5,
@@ -41,6 +71,65 @@
     "currency": "USD",
     "last_updated": "2023-11-06"
   },
+  {
+    "model_id": "gpt-3.5-turbo-instruct",
+    "input_price_per_1m": 1.5,
+    "output_price_per_1m": 2.0,
+    "currency": "USD",
+    "last_updated": "2023-09-20"
+  },
+
+  {
+    "model_id": "o1",
+    "input_price_per_1m": 15.0,
+    "output_price_per_1m": 60.0,
+    "currency": "USD",
+    "last_updated": "2024-12-17"
+  },
+  {
+    "model_id": "o1-pro",
+    "input_price_per_1m": 150.0,
+    "output_price_per_1m": 600.0,
+    "currency": "USD",
+    "last_updated": "2024-12-17"
+  },
+  {
+    "model_id": "o3",
+    "input_price_per_1m": 2.0,
+    "output_price_per_1m": 8.0,
+    "currency": "USD",
+    "last_updated": "2025-04-16"
+  },
+  {
+    "model_id": "o3-mini",
+    "input_price_per_1m": 1.1,
+    "output_price_per_1m": 4.4,
+    "currency": "USD",
+    "last_updated": "2025-01-31"
+  },
+  {
+    "model_id": "o4-mini",
+    "input_price_per_1m": 1.1,
+    "output_price_per_1m": 4.4,
+    "currency": "USD",
+    "last_updated": "2025-04-16"
+  },
+
+  {
+    "model_id": "gpt-realtime",
+    "input_price_per_1m": 4.0,
+    "output_price_per_1m": 16.0,
+    "currency": "USD",
+    "last_updated": "2024-10-01"
+  },
+  {
+    "model_id": "gpt-realtime-mini",
+    "input_price_per_1m": 0.6,
+    "output_price_per_1m": 2.4,
+    "currency": "USD",
+    "last_updated": "2024-10-01"
+  },
+
   {
     "model_id": "text-embedding-3-small",
     "input_price_per_1m": 0.02,
@@ -61,5 +150,48 @@
     "output_price_per_1m": null,
     "currency": "USD",
     "last_updated": "2022-12-15"
+  },
+
+  {
+    "model_id": "text-davinci-003",
+    "input_price_per_1m": 20.0,
+    "output_price_per_1m": null,
+    "currency": "USD",
+    "last_updated": "2022-11-28"
+  },
+  {
+    "model_id": "text-davinci-002",
+    "input_price_per_1m": 20.0,
+    "output_price_per_1m": null,
+    "currency": "USD",
+    "last_updated": "2022-03-15"
+  },
+  {
+    "model_id": "davinci",
+    "input_price_per_1m": 20.0,
+    "output_price_per_1m": null,
+    "currency": "USD",
+    "last_updated": "2020-06-11"
+  },
+  {
+    "model_id": "curie",
+    "input_price_per_1m": 2.0,
+    "output_price_per_1m": null,
+    "currency": "USD",
+    "last_updated": "2020-06-11"
+  },
+  {
+    "model_id": "babbage",
+    "input_price_per_1m": 0.5,
+    "output_price_per_1m": null,
+    "currency": "USD",
+    "last_updated": "2020-06-11"
+  },
+  {
+    "model_id": "ada",
+    "input_price_per_1m": 0.4,
+    "output_price_per_1m": null,
+    "currency": "USD",
+    "last_updated": "2020-06-11"
   }
 ]
