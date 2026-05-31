@@ -1,0 +1,47 @@
+# Version control
+.git
+.gitignore
+
+# Python caches / build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+
+# Local virtualenv (deps are reinstalled inside the image)
+.venv/
+venv/
+env/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Runtime output
+logs/
+reports/
+artifacts/
+
+# Dev-only material
+tests/
+notebooks/
+.vscode/
+.idea/
+
+# Local env files (provide config at runtime instead)
+.env
+
+# Docs
+README.md
+CLAUDE.md
+
+# OS files
+.DS_Store
+Thumbs.db
