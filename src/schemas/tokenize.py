@@ -17,3 +17,8 @@ class TokenizeResponse(BaseModel):
     token_count: int
     tokens: Optional[list[str]] = None
     token_ids: Optional[list[int]] = None
+    word_count: int
+    character_count: int
+    estimated_input_cost: Optional[float] = None
+    cost_currency: Optional[str] = None
+    cost_estimation_note: Optional[str] = None
