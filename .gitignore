@@ -86,7 +86,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-*.lock
+# *.lock
 
 
 # Cython debug symbols
