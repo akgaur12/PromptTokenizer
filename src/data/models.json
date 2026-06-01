@@ -8,11 +8,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "o200k_base",
     "status": "stable",
-    "description": "Latest OpenAI encoding used by GPT-4o family",
     "context_window": null,
+    "max_output_tokens": null,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "Latest OpenAI encoding used by GPT-5 & GPT-4o family"
   },
   {
     "id": "cl100k_base",
@@ -23,11 +25,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "cl100k_base",
     "status": "stable",
-    "description": "Encoding used by GPT-4 and GPT-3.5-turbo",
     "context_window": null,
+    "max_output_tokens": null,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "Encoding used by GPT-4 and GPT-3.5-turbo"
   },
   {
     "id": "p50k_base",
@@ -38,11 +42,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "p50k_base",
     "status": "stable",
-    "description": "Encoding used by code models",
     "context_window": null,
+    "max_output_tokens": null,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "Encoding used by code models"
   },
   {
     "id": "p50k_edit",
@@ -53,11 +59,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "p50k_edit",
     "status": "stable",
-    "description": "Encoding used by edit models",
     "context_window": null,
+    "max_output_tokens": null,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "Encoding used by edit models"
   },
   {
     "id": "r50k_base",
@@ -68,11 +76,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "r50k_base",
     "status": "stable",
-    "description": "Legacy GPT-3 encoding (davinci, curie, babbage, ada)",
     "context_window": null,
+    "max_output_tokens": null,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "Legacy GPT-3 encoding (davinci, curie, babbage, ada)"
   },
   {
     "id": "gpt2",
@@ -83,11 +93,47 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "gpt2",
     "status": "stable",
-    "description": "GPT-2 encoding",
     "context_window": null,
+    "max_output_tokens": null,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "GPT-2 encoding"
+  },
+  {
+    "id": "gpt-oss-20b",
+    "label": "gpt-oss-20b",
+    "group": "OpenAI OpenSource Models",
+    "provider": "openai",
+    "family": "reasoning",
+    "adapter": "openai_tiktoken",
+    "tokenizer_ref": "o200k_base",
+    "status": "alias",
+    "context_window": 131072,
+    "max_output_tokens": 131072,
+    "knowledge_cutoff": "Jun 01, 2024",
+    "supports_token_decode": true,
+    "supports_browser": true,
+    "deprecated": false,
+    "description": "OpenAI gpt-oss-20b reasoning model"
+  },
+  {
+    "id": "gpt-oss-120b",
+    "label": "gpt-oss-120b",
+    "group": "OpenAI OpenSource Models",
+    "provider": "openai",
+    "family": "reasoning",
+    "adapter": "openai_tiktoken",
+    "tokenizer_ref": "o200k_base",
+    "status": "alias",
+    "context_window": 131072,
+    "max_output_tokens": 131072,
+    "knowledge_cutoff": "Jun 01, 2024",
+    "supports_token_decode": true,
+    "supports_browser": true,
+    "deprecated": false,
+    "description": "OpenAI gpt-oss-120b reasoning model"
   },
   {
     "id": "gpt-5",
@@ -98,11 +144,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "o200k_base",
     "status": "alias",
-    "description": "OpenAI GPT-5 flagship model",
     "context_window": 400000,
+    "max_output_tokens": 128000,
+    "knowledge_cutoff": "September 30, 2024",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI GPT-5 flagship model"
   },
   {
     "id": "gpt-5-mini",
@@ -113,11 +161,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "o200k_base",
     "status": "alias",
-    "description": "OpenAI GPT-5 mini model optimized for cost and latency",
     "context_window": 400000,
+    "max_output_tokens": 128000,
+    "knowledge_cutoff": "May 31, 2024",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI GPT-5 mini model optimized for cost and latency"
   },
   {
     "id": "gpt-5-nano",
@@ -128,11 +178,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "o200k_base",
     "status": "alias",
-    "description": "OpenAI GPT-5 nano model optimized for high-throughput workloads",
     "context_window": 400000,
+    "max_output_tokens": 128000,
+    "knowledge_cutoff": "May 31, 2024",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI GPT-5 nano model optimized for high-throughput workloads"
   },
   {
     "id": "gpt-5-pro",
@@ -143,11 +195,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "o200k_base",
     "status": "alias",
-    "description": "OpenAI GPT-5 Pro model for advanced reasoning and complex tasks",
     "context_window": 400000,
+    "max_output_tokens": 272000, 
+    "knowledge_cutoff": "September 30, 2024",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI GPT-5 Pro model for advanced reasoning and complex tasks"
   },
   {
     "id": "gpt-4o",
@@ -158,11 +212,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "o200k_base",
     "status": "alias",
-    "description": "OpenAI GPT-4o multimodal model",
     "context_window": 128000,
+    "max_output_tokens": 16384,
+    "knowledge_cutoff": "Oct 01, 2023",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI GPT-4o multimodal model"
   },
   {
     "id": "gpt-4o-mini",
@@ -173,11 +229,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "o200k_base",
     "status": "alias",
-    "description": "OpenAI GPT-4o mini model",
     "context_window": 128000,
+    "max_output_tokens": 16384,
+    "knowledge_cutoff": "Oct 01, 2023",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI GPT-4o mini model"
   },
   {
     "id": "gpt-4",
@@ -188,11 +246,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "cl100k_base",
     "status": "alias",
-    "description": "OpenAI GPT-4 family model",
     "context_window": 8192,
+    "max_output_tokens": 8192,
+    "knowledge_cutoff": "Dec 01, 2023",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI GPT-4 family model"
   },
   {
     "id": "gpt-4-32k",
@@ -203,11 +263,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "cl100k_base",
     "status": "alias",
-    "description": "OpenAI GPT-4 32k context model",
     "context_window": 32768,
+    "max_output_tokens": 8192,
+    "knowledge_cutoff": "Dec 01, 2023",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI GPT-4 32k context model"
   },
   {
     "id": "gpt-4-turbo",
@@ -218,11 +280,30 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "cl100k_base",
     "status": "alias",
-    "description": "OpenAI GPT-4 Turbo model with 128k context",
     "context_window": 128000,
+    "max_output_tokens": 4096,
+    "knowledge_cutoff": "Dec 01, 2023",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI GPT-4 Turbo model with 128k context"
+  },
+  {
+    "id": "gpt-3.5",
+    "label": "gpt-3.5",
+    "group": "OpenAI Models",
+    "provider": "openai",
+    "family": "gpt-3.5",
+    "adapter": "openai_tiktoken",
+    "tokenizer_ref": "cl100k_base",
+    "status": "alias",
+    "context_window": 16385,
+    "max_output_tokens": 4096,
+    "knowledge_cutoff": "Sep 01, 2021",
+    "supports_token_decode": true,
+    "supports_browser": true,
+    "deprecated": false,
+    "description": "OpenAI GPT-3.5 Turbo model"
   },
   {
     "id": "gpt-3.5-turbo",
@@ -233,11 +314,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "cl100k_base",
     "status": "alias",
-    "description": "OpenAI GPT-3.5 Turbo model",
     "context_window": 16385,
+    "max_output_tokens": 4096,
+    "knowledge_cutoff": "Sep 01, 2021",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI GPT-3.5 Turbo model"
   },
   {
     "id": "gpt-3.5-turbo-instruct",
@@ -248,11 +331,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "cl100k_base",
     "status": "alias",
-    "description": "OpenAI GPT-3.5 Turbo Instruct model",
     "context_window": 4096,
+    "max_output_tokens": 4096,
+    "knowledge_cutoff": "Sep 01, 2021",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI GPT-3.5 Turbo Instruct model"
   },
   {
     "id": "text-embedding-3-small",
@@ -263,11 +348,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "cl100k_base",
     "status": "alias",
-    "description": "OpenAI text-embedding-3-small model",
     "context_window": 8191,
+    "max_output_tokens": null,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI text-embedding-3-small model"
   },
   {
     "id": "text-embedding-3-large",
@@ -278,11 +365,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "cl100k_base",
     "status": "alias",
-    "description": "OpenAI text-embedding-3-large model",
     "context_window": 8191,
+    "max_output_tokens": null,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI text-embedding-3-large model"
   },
   {
     "id": "text-embedding-ada-002",
@@ -293,11 +382,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "cl100k_base",
     "status": "alias",
-    "description": "OpenAI text-embedding-ada-002 legacy embedding model",
     "context_window": 8191,
+    "max_output_tokens": null,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI text-embedding-ada-002 legacy embedding model"
   },
   {
     "id": "text-davinci-003",
@@ -308,11 +399,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "p50k_base",
     "status": "alias",
-    "description": "OpenAI text-davinci-003 (legacy)",
     "context_window": 4097,
+    "max_output_tokens": 4096,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": true
+    "deprecated": true,
+    "description": "OpenAI text-davinci-003 (legacy)"
   },
   {
     "id": "text-davinci-002",
@@ -323,11 +416,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "p50k_base",
     "status": "alias",
-    "description": "OpenAI text-davinci-002 (legacy)",
     "context_window": 4097,
+    "max_output_tokens": 4096,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": true
+    "deprecated": true,
+    "description": "OpenAI text-davinci-002 (legacy)"
   },
   {
     "id": "text-davinci-001",
@@ -338,11 +433,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "r50k_base",
     "status": "alias",
-    "description": "OpenAI text-davinci-001 (legacy)",
     "context_window": 2049,
+    "max_output_tokens": 2048,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": true
+    "deprecated": true,
+    "description": "OpenAI text-davinci-001 (legacy)"
   },
   {
     "id": "davinci",
@@ -353,11 +450,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "r50k_base",
     "status": "alias",
-    "description": "OpenAI davinci (legacy GPT-3)",
     "context_window": 2049,
+    "max_output_tokens": 2048,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": true
+    "deprecated": true,
+    "description": "OpenAI davinci (legacy GPT-3)"
   },
   {
     "id": "curie",
@@ -368,11 +467,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "r50k_base",
     "status": "alias",
-    "description": "OpenAI curie (legacy GPT-3)",
     "context_window": 2049,
+    "max_output_tokens": 2048,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": true
+    "deprecated": true,
+    "description": "OpenAI curie (legacy GPT-3)"
   },
   {
     "id": "babbage",
@@ -383,11 +484,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "r50k_base",
     "status": "alias",
-    "description": "OpenAI babbage (legacy GPT-3)",
     "context_window": 2049,
+    "max_output_tokens": 2048,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": true
+    "deprecated": true,
+    "description": "OpenAI babbage (legacy GPT-3)"
   },
   {
     "id": "ada",
@@ -398,11 +501,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "r50k_base",
     "status": "alias",
-    "description": "OpenAI ada (legacy GPT-3)",
     "context_window": 2049,
+    "max_output_tokens": 2048,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": true
+    "deprecated": true,
+    "description": "OpenAI ada (legacy GPT-3)"
   },
   {
     "id": "code-davinci-002",
@@ -413,11 +518,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "p50k_base",
     "status": "alias",
-    "description": "OpenAI Codex code-davinci-002 (legacy)",
     "context_window": 8001,
+    "max_output_tokens": 4096,
+    "knowledge_cutoff": null,
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": true
+    "deprecated": true,
+    "description": "OpenAI Codex code-davinci-002 (legacy)"
   },
   {
     "id": "o1",
@@ -428,11 +535,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "o200k_base",
     "status": "alias",
-    "description": "OpenAI o1 reasoning model",
     "context_window": 200000,
+    "max_output_tokens": 100000,
+    "knowledge_cutoff": "Oct 01, 2023",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI o1 reasoning model"
   },
   {
     "id": "o3",
@@ -443,11 +552,13 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "o200k_base",
     "status": "alias",
-    "description": "OpenAI o3 reasoning model",
     "context_window": 200000,
+    "max_output_tokens": 100000,
+    "knowledge_cutoff": "Jun 01, 2024",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI o3 reasoning model"
   },
   {
     "id": "o4-mini",
@@ -458,10 +569,12 @@
     "adapter": "openai_tiktoken",
     "tokenizer_ref": "o200k_base",
     "status": "alias",
-    "description": "OpenAI o4-mini reasoning model",
     "context_window": 200000,
+    "max_output_tokens": 100000,
+    "knowledge_cutoff": "Jun 01, 2024",
     "supports_token_decode": true,
     "supports_browser": true,
-    "deprecated": false
+    "deprecated": false,
+    "description": "OpenAI o4-mini reasoning model"
   }
 ]

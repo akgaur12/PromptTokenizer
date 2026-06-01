@@ -193,5 +193,19 @@
     "output_price_per_1m": null,
     "currency": "USD",
     "last_updated": "2020-06-11"
+  },
+  {
+    "model_id": "gpt-oss-20b",
+    "input_price_per_1m": 0.07,
+    "output_price_per_1m": 0.30,
+    "currency": "USD",
+    "last_updated": "2024-08-10"
+  },
+  {
+    "model_id": "gpt-oss-120b",
+    "input_price_per_1m": 0.15,
+    "output_price_per_1m": 0.60,
+    "currency": "USD",
+    "last_updated": "2024-08-10"
   }
 ]
