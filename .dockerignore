@@ -39,7 +39,6 @@ notebooks/
 .env
 
 # Docs
-README.md
 CLAUDE.md
 
 # OS files
