@@ -8,15 +8,18 @@ class ModelEntry(BaseModel):
     label: str
     group: str
     provider: str
+    family: Optional[str] = None
     adapter: str
     tokenizer_ref: str
     status: str
-    description: Optional[str] = None
     context_window: Optional[int] = None
-    notes: Optional[str] = None
+    max_output_tokens: Optional[int] = None
+    knowledge_cutoff: Optional[str] = None
     supports_token_decode: bool = True
     supports_browser: bool = True
     deprecated: bool = False
+    notes: Optional[str] = None
+    description: Optional[str] = None
 
 
 class ModelsListResponse(BaseModel):
