@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     )
 
     app_name: str = "prompt-tokenizer"
-    app_env: str = "development"
+    app_env: str = "dev"
     app_host: str = "0.0.0.0"
     app_port: int = 8000
     allowed_origins: list[str] = ["http://localhost:3000", "http://localhost:5173"]
