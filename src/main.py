@@ -31,8 +31,9 @@ def create_app() -> FastAPI:
         title=settings.app_name,
         version=settings.app_version,
         description="Production-ready tokenizer platform API supporting OpenAI encodings and model aliases.",
-        docs_url="/docs",
-        redoc_url="/redoc",
+        docs_url="/docs" if settings.app_env == "dev" else None,
+        redoc_url="/redoc" if settings.app_env == "dev" else None,
+        openapi_url="/openapi.json" if settings.app_env == "dev" else None,
         lifespan=lifespan,
     )
 
