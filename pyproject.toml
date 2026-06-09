@@ -1,9 +1,10 @@
 [project]
 name = "prompttokenizer"
 version = "0.1.0"
-description = "Add your description here"
+description = "FastAPI microservice that tokenizes text for various LLM models and exposes token counts, model comparison, and pricing endpoints."
 readme = "README.md"
 requires-python = ">=3.13"
+
 dependencies = [
     "fastapi>=0.111.0",
     "uvicorn[standard]>=0.29.0",

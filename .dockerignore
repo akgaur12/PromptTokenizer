@@ -11,11 +11,6 @@ build/
 dist/
 *.egg-info/
 
-# Local virtualenv (deps are reinstalled inside the image)
-.venv/
-venv/
-env/
-
 # Tooling caches
 .pytest_cache/
 .ruff_cache/
@@ -24,10 +19,21 @@ env/
 htmlcov/
 coverage.xml
 
-# Runtime output
-logs/
-reports/
-artifacts/
+# Local virtualenv (deps are reinstalled inside the image)
+.venv/
+venv/
+env/
+
+# Local env files (provide config at runtime instead)
+.env
+
+# Docs
+CLAUDE.md
+docs/
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # Dev-only material
 tests/
@@ -35,12 +41,7 @@ notebooks/
 .vscode/
 .idea/
 
-# Local env files (provide config at runtime instead)
-.env
-
-# Docs
-CLAUDE.md
-
-# OS files
-.DS_Store
-Thumbs.db
+# Runtime output
+logs/
+reports/
+artifacts/
