@@ -41,6 +41,7 @@ def create_app() -> FastAPI:
     register_exception_handlers(app)
 
     app.include_router(health.router)
+    app.include_router(health.status_router, prefix=settings.api_prefix)
     app.include_router(models.router, prefix=settings.api_prefix)
     app.include_router(tokenize.router, prefix=settings.api_prefix)
     app.include_router(compare.router, prefix=settings.api_prefix)
